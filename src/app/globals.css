@@ -1,0 +1,38 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* 添加一些全局样式 */
+html,
+body {
+  @apply min-h-screen w-full;
+}
+
+/* 设置背景 */
+body {
+  position: relative;
+}
+
+/* 使用伪元素只旋转背景图片 */
+body::before {
+  content: "";
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  width: 100vh;
+  height: 100vw;
+  z-index: -1;
+  background-image: url("/images/backgrounds/main_background.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  transform: translate(-50%, -50%) rotate(-90deg);
+  transform-origin: center center;
+}
+
+/* 自定义背景类 */
+@layer components {
+  .hero-bg {
+    @apply relative bg-cover bg-center;
+  }
+}

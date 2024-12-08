@@ -1,0 +1,93 @@
+# 创建新的 Next.js 项目
+npx create-next-app@latest my-blog-project --typescript --tailwind --app
+cd my-blog-project
+
+# 安装必要的依赖
+npm install next-auth @prisma/client @auth/prisma-adapter
+npm install -D prisma @types/node @types/react
+npm install -D tailwindcss postcss autoprefixer
+
+# 安装 Markdown 相关依赖
+npm install gray-matter remark remark-html 
+
+npx prisma generate
+npx prisma db push
+
+brew install postgresql@14
+brew services start postgresql@14
+
+psql postgres
+
+# 在 psql 命令行中执行：
+CREATE DATABASE myblog;
+CREATE USER mybloguser WITH ENCRYPTED PASSWORD 'your_password';
+GRANT ALL PRIVILEGES ON DATABASE myblog TO mybloguser;
+
+npm run dev
+
+npm install
+
+npx tailwindcss init -p
+
+npm install -D @tailwindcss/typography
+
+mkdir -p public/images/backgrounds
+
+# 初始化 Git 仓库
+git init
+
+# 创建 .gitignore 文件
+cat > .gitignore << EOL
+# dependencies
+/node_modules
+/.pnp
+.pnp.js
+
+# testing
+/coverage
+
+# next.js
+/.next/
+/out/
+
+# production
+/build
+
+# misc
+.DS_Store
+*.pem
+
+# debug
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# local env files
+.env*.local
+.env
+
+# vercel
+.vercel
+
+# typescript
+*.tsbuildinfo
+next-env.d.ts
+EOL
+
+# 添加所有文件到暂存区
+git add .
+
+# 创建第一次提交
+git commit -m "Initial commit: Blog setup with Next.js
+
+- Added blog layout and styling with Tailwind CSS
+- Implemented responsive navigation with glass morphism effects
+- Created home page with featured content sections
+- Added footer component with contact information
+- Set up dark theme with modern UI design"
+
+# 添加远程仓库
+git remote add origin https://github.com/gumayusi1111/blog.git
+
+# 推送到 GitHub
+git push -u origin main

@@ -138,4 +138,66 @@ git commit -m "Initial commit: Blog setup with Next.js
 # 强制推送更新
 git push -f origin main
 
-mkdir -p content/posts
+mkdir -p content/posts content/notes content/daily
+
+# 创建示例学习笔记
+cat > content/notes/typescript-type-challenges.md << EOL
+---
+title: "TypeScript 类型体操练习"
+date: "2024-01-15"
+excerpt: "记录一些有趣的 TypeScript 类型编程练习和心得..."
+tags: ["TypeScript", "学习笔记"]
+---
+
+# TypeScript 类型体操练习
+
+记录一些有趣的 TypeScript 类型编程练习和理解过程...
+EOL
+
+# 创建示例日常记录
+cat > content/daily/2024-learning-plan.md << EOL
+---
+title: "2024年学习计划"
+date: "2024-01-01"
+excerpt: "整理新的一年要学习的技术栈和目标..."
+tags: ["计划", "学习"]
+---
+
+# 2024年学习计划
+
+## 技术栈
+1. Next.js App Router
+2. TypeScript 进阶
+3. 算法与数据结构
+
+## 目标项目
+- 个人博客系统
+- ...
+EOL
+
+# 添加所有更改的文件
+git add .
+
+# 创建提交
+git commit -m "Update UI styles and transparency
+
+- 增加文章列表和文章详情页的不透明度 (80-90%)
+- 更新文字颜色为深色系，提高可读性
+- 添加阴影效果增强层次感
+- 优化文章卡片的悬停效果
+- 创建基础的 Markdown 文章系统
+- 添加示例文章内容"
+
+# 推送到远程仓库
+git push origin main
+
+npm install @uiw/react-md-editor
+
+# 安装 Markdown 编辑器
+npm install @uiw/react-md-editor
+
+# 安装相关依赖
+npm install @types/react-syntax-highlighter
+
+# 创建上传目录
+mkdir -p public/uploads

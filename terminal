@@ -86,8 +86,56 @@ git commit -m "Initial commit: Blog setup with Next.js
 - Added footer component with contact information
 - Set up dark theme with modern UI design"
 
-# 添加远程仓库
-git remote add origin https://github.com/gumayusi1111/blog.git
+# 将当前分支重命名为 main
+git branch -M main
 
-# 推送到 GitHub
-git push -u origin main
+# 配置用户信息
+git config --global user.name "gumayusi1111"
+git config --global user.email "your-email@example.com"
+
+# 存储凭证
+git config --global credential.helper store
+
+# 删除旧的远程仓库
+git remote remove origin
+
+# 添加新的 SSH 远程仓库
+git remote add origin git@github.com:gumayusi1111/blog.git
+
+# 推送代码
+git push -f origin main
+
+# 生成 SSH 密钥
+ssh-keygen -t ed25519 -C "your-email@example.com"
+
+# 启动 ssh-agent
+eval "$(ssh-agent -s)"
+
+# 添加 SSH 密钥到 ssh-agent
+ssh-add ~/.ssh/id_ed25519
+
+# 查看公钥内容（需要添加到 GitHub）
+cat ~/.ssh/id_ed25519.pub
+
+# 重置到最初的状态
+git reset --hard HEAD~1
+
+# 清理 .git 目录
+git gc --aggressive --prune=now
+
+# 重新添加文件
+git add .
+
+# 创建新的提交
+git commit -m "Initial commit: Blog setup with Next.js
+
+- Added blog layout and styling with Tailwind CSS
+- Implemented responsive navigation with glass morphism effects
+- Created home page with featured content sections
+- Added footer component with contact information
+- Set up dark theme with modern UI design"
+
+# 强制推送更新
+git push -f origin main
+
+mkdir -p content/posts

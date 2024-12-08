@@ -25,67 +25,39 @@ const posts = [
 
 export default function Home() {
   return (
-    <div className="pt-16">
-      <div className="space-y-16">
-        {/* 主页横幅 */}
-        <section className="relative py-24 bg-cover bg-center">
-          <div className="relative">
-            <div className="text-center">
-              <h1 className="text-5xl font-bold mb-6 text-white">
-                欢迎来到我的博客
-              </h1>
-              <p className="text-xl text-gray-100 max-w-2xl mx-auto mb-8">
-                探索 Web 开发、技术分享和编程心得
-              </p>
-              <a 
-                href="/posts" 
-                className="inline-block bg-white/10 hover:bg-white/20 text-white px-8 py-3 rounded-lg transition-colors backdrop-blur-sm"
-              >
-                浏览文章
-              </a>
-            </div>
+    <div className="space-y-8">
+      <section className="text-center py-24 bg-cover bg-center">
+        <div className="relative">
+          <div className="text-center">
+            <h1 className="text-5xl font-bold mb-6 text-white">
+              欢迎来到我的博客
+            </h1>
+            <p className="text-xl text-gray-100 max-w-2xl mx-auto mb-8">
+              探索 Web 开发、技术分享和编程心得
+            </p>
+            <a 
+              href="/posts" 
+              className="inline-block bg-white/10 hover:bg-white/20 text-white px-8 py-3 rounded-lg transition-colors backdrop-blur-sm"
+            >
+              浏览文章
+            </a>
           </div>
-        </section>
-        
-        {/* 特色内容 */}
-        <section className="max-w-7xl mx-auto px-4">
-          <div className="grid md:grid-cols-3 gap-8">
-            <div className="bg-white/10 backdrop-blur-sm p-6 rounded-lg">
-              <h3 className="text-xl font-bold text-white mb-4">前端开发</h3>
-              <p className="text-gray-300">
-                React、Next.js、TypeScript 等现代前端技术的深入探讨。
-              </p>
-            </div>
-            <div className="bg-white/10 backdrop-blur-sm p-6 rounded-lg">
-              <h3 className="text-xl font-bold text-white mb-4">最佳实践</h3>
-              <p className="text-gray-300">
-                代码质量、性能优化、开发效率的实用技巧。
-              </p>
-            </div>
-            <div className="bg-white/10 backdrop-blur-sm p-6 rounded-lg">
-              <h3 className="text-xl font-bold text-white mb-4">技术分享</h3>
-              <p className="text-gray-300">
-                实际项目经验和解决方案的分享。
-              </p>
-            </div>
-          </div>
-        </section>
+        </div>
+      </section>
 
-        {/* 最新文章 */}
-        <section className="max-w-4xl mx-auto px-4">
-          <div className="bg-white/10 backdrop-blur-sm rounded-xl p-8">
-            <h2 className="text-3xl font-bold mb-8 text-white">最新文章</h2>
-            <div className="grid gap-8">
-              {posts.map((post) => (
-                <PostCard key={post.slug} {...post} />
-              ))}
-            </div>
+      {/* 最新文章部分 */}
+      <section className="max-w-4xl mx-auto px-4">
+        <div className="bg-white/80 backdrop-blur-md rounded-xl p-8 shadow-xl">
+          <h2 className="text-3xl font-bold mb-8 text-white">最新文章</h2>
+          <div className="grid gap-8">
+            {posts.map((post) => (
+              <PostCard key={post.slug} {...post} />
+            ))}
           </div>
-        </section>
+        </div>
+      </section>
 
-        {/* 页脚 */}
-        <Footer />
-      </div>
+      <Footer />
     </div>
   );
 } 
